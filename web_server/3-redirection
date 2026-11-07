@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Installs nginx, serves "Holberton School" and sets up a 301 redirect for /redirect_me
 apt-get update -y
 apt-get install -y nginx
 echo "Holberton School" > /var/www/html/index.html
