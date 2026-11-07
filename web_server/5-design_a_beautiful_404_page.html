@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>404 - Ceci n'est pas une page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500;1,600&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sky-top: #5d8fc4;
+    --sky-bottom: #cfe2f1;
+    --cloud: #f6f9fc;
+    --paper: #fbf8f1;
+    --ink: #1f2a3a;
+    --line: #c9c3b4;
+    --hat: #1c2230;
+    --accent: #2b4f81;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    font-family: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    color: var(--ink);
+    background: linear-gradient(180deg, var(--sky-top) 0%, var(--sky-bottom) 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* clouds */
+  .cloud {
+    position: absolute;
+    background: var(--cloud);
+    border-radius: 999px;
+    filter: blur(1px);
+    opacity: .92;
+  }
+  .cloud::before, .cloud::after {
+    content: "";
+    position: absolute;
+    background: var(--cloud);
+    border-radius: 50%;
+  }
+  .c1 { width: 240px; height: 60px; top: 12%; left: 8%; }
+  .c1::before { width: 110px; height: 110px; top: -50px; left: 30px; }
+  .c1::after  { width: 80px; height: 80px; top: -30px; left: 120px; }
+  .c2 { width: 300px; height: 70px; top: 24%; right: 6%; }
+  .c2::before { width: 130px; height: 130px; top: -60px; left: 50px; }
+  .c2::after  { width: 100px; height: 100px; top: -40px; left: 160px; }
+  .c3 { width: 200px; height: 50px; bottom: 14%; left: 14%; }
+  .c3::before { width: 90px; height: 90px; top: -40px; left: 24px; }
+  .c3::after  { width: 70px; height: 70px; top: -26px; left: 100px; }
+
+  main {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 24px;
+    text-align: center;
+  }
+
+  .sheet {
+    width: min(260px, 60vw);
+    height: auto;
+    animation: drift 6s ease-in-out infinite;
+    filter: drop-shadow(0 22px 24px rgba(20, 40, 70, .28));
+  }
+  @keyframes drift {
+    0%, 100% { transform: translateY(0) rotate(-3deg); }
+    50% { transform: translateY(-14px) rotate(2deg); }
+  }
+
+  .caption {
+    margin-top: 36px;
+    font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: clamp(2.2rem, 7vw, 4rem);
+    line-height: 1.1;
+    color: var(--hat);
+    letter-spacing: .01em;
+  }
+
+  .explain {
+    margin-top: 18px;
+    max-width: 46ch;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #25354d;
+  }
+  .explain strong { font-weight: 500; }
+
+  .home {
+    margin-top: 30px;
+    display: inline-block;
+    padding: 13px 28px;
+    border-radius: 999px;
+    background: var(--hat);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: background .2s ease, transform .2s ease;
+  }
+  .home:hover { background: var(--accent); transform: translateY(-2px); }
+  .home:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sheet { animation: none; transform: rotate(-3deg); }
+    .home { transition: none; }
+  }
+</style>
+</head>
+<body>
+  <div class="cloud c1" aria-hidden="true"></div>
+  <div class="cloud c2" aria-hidden="true"></div>
+  <div class="cloud c3" aria-hidden="true"></div>
+
+  <main>
+    <svg class="sheet" viewBox="0 0 260 340" role="img" aria-label="A blank sheet of paper floating in the sky">
+      <!-- paper with folded top-right corner -->
+      <path d="M12 8 H196 L248 60 V332 H12 Z" fill="#fbf8f1" stroke="#c9c3b4" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M196 8 V60 H248 Z" fill="#e8e1d0" stroke="#c9c3b4" stroke-width="2" stroke-linejoin="round"/>
+      <!-- faint ruled lines -->
+      <g stroke="#e3dccb" stroke-width="2" stroke-linecap="round">
+        <line x1="36" y1="210" x2="224" y2="210"/>
+        <line x1="36" y1="240" x2="224" y2="240"/>
+        <line x1="36" y1="270" x2="224" y2="270"/>
+        <line x1="36" y1="300" x2="160" y2="300"/>
+      </g>
+      <!-- big 404 printed on the page -->
+      <text x="130" y="168" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="92" font-weight="700" fill="#1c2230">404</text>
+      <!-- bowler hat resting on the page, a nod to Magritte -->
+      <g transform="translate(76 60)">
+        <ellipse cx="54" cy="46" rx="62" ry="9" fill="#10141f"/>
+        <path d="M14 44 C14 6 34 0 54 0 C74 0 94 6 94 44 Z" fill="#1c2230"/>
+        <path d="M16 38 H92" stroke="#3a4560" stroke-width="5"/>
+      </g>
+    </svg>
+
+    <h1 class="caption">Ceci n'est pas une page</h1>
+
+    <p class="explain">
+      <strong>Error 404.</strong> The page you asked for doesn't exist here.
+      It may have moved, or the address may have a typo.
+    </p>
+
+    <a class="home" href="/">Back to the homepage</a>
+  </main>
+</body>
+</html>
