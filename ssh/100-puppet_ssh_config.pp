@@ -1,4 +1,5 @@
 include stdlib
+#configures ssh for dev
 
 file_line { 'Declare identity file':
   path  => '/etc/ssh/ssh_config',
