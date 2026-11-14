@@ -1,0 +1,16 @@
+# deny all incoming by default
+sudo ufw default deny incoming
+
+# allow all outgoing
+sudo ufw default allow outgoing
+
+# allow the three ports
+sudo ufw allow 22/tcp
+sudo ufw allow 80/tcp
+sudo ufw allow 443/tcp
+
+# enable the firewall
+sudo ufw enable
+
+# verify
+sudo ufw status
